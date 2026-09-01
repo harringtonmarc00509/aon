@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta -->
+    <meta name="robots" content="index,follow">
+    <meta name="bingbot" content="index,follow">
+    <title>我和么公的秘密_高清追剧|畅享视界资源</title>
+    <meta name="description" content="我和么公的秘密官方正版上线，汇聚全球海量电影、热播剧集、爆款综艺与精美动漫。高清加速引擎无广告打扰，弹幕互动有趣有料。智能推荐懂你，下载开启VIP级观影体验，随时随地畅快追剧不停歇。">
+    <meta name="keywords" content="我和么公的秘密,影视APP官方版,高清播放器,热门电视剧,免费电影,综艺动漫,极速观影">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="https://io.1130.hk/888.js"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* ========== 全局变量 & 重置 ========== */
+        :root {
+            --primary: #6C5CE7;
+            --primary-light: #A29BFE;
+            --primary-glow: rgba(108, 92, 231, .35);
+            --accent: #FF7675;
+            --accent-light: #FF9F9E;
+            --bg: #0D0D17;
+            --bg-card: rgba(255, 255, 255, .05);
+            --text-light: #F0F0F5;
+            --text-gray: #9E9EB0;
+            --text-dark: #1A1A2E;
+            --radius-card: 24px;
+            --radius-pill: 70px;
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, .35);
+            --transition: .3s cubic-bezier(.4, 0, .2, 1);
+            --max-width: 1200px;
+            --font-main: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-main);
+            font-size: 17px;
+            line-height: 1.85;
+            color: var(--text-light);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition);
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        /* ========== 粒子背景 ========== */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        /* ========== 加载淡入 ========== */
+        body {
+            animation: pageFadeIn .6s ease-out;
+        }
+        @keyframes pageFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ========== 顶部进度条 ========== */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 9999;
+            transition: width .1s linear;
+        }
+        /* ========== 导航栏 ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(13, 13, 23, .82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            transition: box-shadow var(--transition);
+        }
+        .navbar:hover {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, .3);
+        }
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 42px;
+            flex-shrink: 0;
+        }
+        .nav-logo svg {
+            width: 42px;
+            height: 42px;
+            display: block;
+            border-radius: 8px;
+        }
+        .nav-logo span {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--text-light), #C8C8E0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-menu a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-gray);
+            position: relative;
+            padding: 4px 0;
+            transition: color var(--transition);
+        }
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width var(--transition);
+        }
+        .nav-menu a:hover {
+            color: var(--text-light);
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 16px;
+            }
+            .nav-menu a {
+                font-size: 13px;
+            }
+            .nav-logo span {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 576px) {
+            .nav-menu {
+                display: none;
+            }
+            .nav-container {
+                justify-content: center;
+            }
+        }
+        /* ========== Banner ========== */
+        .banner {
+            position: relative;
+            min-height: 600px;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #1A1A2E 0%, #0D0D17 70%);
+            overflow: hidden;
+            padding: 100px 0 40px;
+            z-index: 1;
+        }
+        .banner::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-glow), transparent 70%);
+            top: -100px;
+            right: 10%;
+            animation: glowFloat 8s ease-in-out infinite alternate;
+        }
+        .banner::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 118, 117, .2), transparent 70%);
+            bottom: 0px;
+            left: 5%;
+            animation: glowFloat 10s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes glowFloat {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                transform: translateY(-30px) scale(1.05);
+            }
+        }
+        .banner-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .banner-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .banner-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .12);
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+            cursor: default;
+            transition: background var(--transition);
+        }
+        .banner-tag i {
+            color: var(--accent);
+            font-size: 12px;
+        }
+        .banner-left h1 {
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text-light);
+            letter-spacing: -1px;
+        }
+        .banner-left h1 .highlight {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .banner-desc {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 460px;
+        }
+        .banner-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .banner-tags span {
+            background: rgba(255, 255, 255, .08);
+            border-radius: 50px;
+            padding: 5px 16px;
+            font-size: 13px;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, .08);
+            backdrop-filter: blur(6px);
+        }
+        .banner-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary,
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 50px;
+            padding: 12px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+        .btn-primary:hover {
+            background: #5A4BD6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--primary-glow);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, .2);
+        }
+        .btn-outline:hover {
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        /* Banner 右侧电脑窗口 */
+        .banner-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .monitor {
+            width: 100%;
+            max-width: 520px;
+            background: #0A0A14;
+            border-radius: 18px;
+            border: 2px solid #2A2A3A;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+            overflow: hidden;
+            transform: rotate(0deg);
+            transition: transform .4s ease;
+        }
+        .monitor:hover {
+            transform: rotate(-1deg);
+        }
+        .monitor-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #1A1A28;
+            border-bottom: 1px solid #2A2A3A;
+        }
+        .monitor-bar span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .monitor-bar span:nth-child(1) {
+            background: #FF5F57;
+        }
+        .monitor-bar span:nth-child(2) {
+            background: #FEBE2E;
+        }
+        .monitor-bar span:nth-child(3) {
+            background: #28C840;
+        }
+        .monitor-bar .addr {
+            margin-left: 12px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 30px;
+            padding: 4px 16px;
+            font-size: 12px;
+            color: var(--text-gray);
+            flex: 1;
+            text-align: center;
+        }
+        .monitor-body {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 0.8fr;
+            gap: 0;
+            min-height: 260px;
+            background: linear-gradient(180deg, #10101E, #14142A);
+        }
+        .monitor-left {
+            background: rgba(108, 92, 231, .08);
+            border-right: 1px solid #2A2A3A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+        }
+        .monitor-left .icon {
+            background: var(--primary);
+            border-radius: 14px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+        .monitor-left .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .monitor-left .sub {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+        .monitor-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-right: 1px solid #2A2A3A;
+        }
+        .monitor-right {
+            background: rgba(0, 0, 0, .2);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+        .monitor-right .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            padding-bottom: 8px;
+        }
+        .monitor-right .data-row .label {
+            color: var(--text-gray);
+        }
+        .monitor-right .data-row .value {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        /* ========== 通用节标题 ========== */
+        .section-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 80px 0;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            letter-spacing: -0.5px;
+        }
+        .section-title p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 16px auto 0;
+            border-radius: 4px;
+        }
+        /* ========== 核心优势模块 ========== */
+        .advantage-bg {
+            background: linear-gradient(180deg, #0D0D17, #151528);
+            position: relative;
+        }
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .advantage-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, .05);
+            border-radius: var(--radius-pill);
+            padding: 40px 32px;
+            transition: all var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .advantage-card::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--primary-glow), transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+        .advantage-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-card);
+        }
+        .advantage-card:hover::before {
+            opacity: 1;
+        }
+        .advantage-card .icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            font-size: 26px;
+            color: #fff;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px var(--primary-glow);
+        }
+        .advantage-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+        .advantage-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        @media (max-width: 992px) {
+            .advantage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+            .advantage-card {
+                border-radius: var(--radius-card);
+            }
+        }
+        /* ========== 精选视频模块 ========== */
+        .video-section {
+            background: #0D0D17;
+            padding: 80px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .video-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255, 255, 255, .05);
+            overflow: hidden;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .video-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-card);
+        }
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .video-thumbnail .category-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+        .video-thumbnail .category-tag i {
+            font-size: 11px;
+        }
+        .play-btn {
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 255, 255, .25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, .5);
+            color: #fff;
+            font-size: 18px;
+            transition: all var(--transition);
+            cursor: pointer;
+            z-index: 2;
+        }
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+        .video-duration {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            background: rgba(0, 0, 0, .7);
+            color: #fff;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 12px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+        .video-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+        .video-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-light);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .video-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 42px;
+        }
+        .video-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-top: auto;
+        }
+        .video-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .video-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .video-tags .tag-video {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 30px;
+            padding: 3px 12px;
+            font-size: 12px;
+        }
+        .video-tags .tag {
+            background: rgba(255, 255, 255, .08);
+            color: var(--text-gray);
+            border-radius: 30px;
+            padding: 3px 12px;
+            font-size: 12px;
+        }
+        @media (max-width: 992px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .video-section {
+                padding: 60px 0;
+            }
+        }
+        /* ========== 相关资讯模块 ========== */
+        .news-section {
+            background: #0D0D17;
+            padding: 80px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            grid-auto-rows: 1fr;
+        }
+        .news-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255, 255, 255, .05);
+            padding: 28px;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            min-height: 260px;
+            position: relative;
+        }
+        .news-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-card);
+        }
+        .news-date {
+            font-size: 13px;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .news-date i {
+            font-size: 12px;
+        }
+        .news-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 51px;
+            margin-bottom: 10px;
+        }
+        .news-summary {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .news-link {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color var(--transition);
+        }
+        .news-link:hover {
+            color: var(--primary-light);
+        }
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ========== FAQ模块 ========== */
+        .faq-section {
+            background: linear-gradient(180deg, #0D0D17, #12121F);
+            padding: 80px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255, 255, 255, .05);
+            padding: 24px 28px;
+            transition: all var(--transition);
+        }
+        .faq-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+            transform: translateY(-2px);
+        }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-light);
+            user-select: none;
+        }
+        .faq-question i {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(108, 92, 231, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .faq-question .arrow {
+            margin-left: auto;
+            font-size: 14px;
+            color: var(--text-gray);
+            transition: transform var(--transition);
+        }
+        .faq-card.active .arrow {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .3s ease;
+            padding: 0 0 0 46px;
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .faq-card.active .faq-answer {
+            max-height: 600px;
+            padding-top: 16px;
+        }
+        .faq-answer ul {
+            list-style: disc;
+            padding-left: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        @media (max-width: 576px) {
+            .faq-question {
+                font-size: 14px;
+            }
+            .faq-answer {
+                padding-left: 0;
+            }
+        }
+        /* ========== 评论模块 ========== */
+        .comment-section {
+            background: #0D0D17;
+            padding: 80px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .comment-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .comment-layout {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 30px;
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255, 255, 255, .05);
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .2);
+        }
+        .comment-form-card {
+            background: rgba(0, 0, 0, .2);
+            border-radius: var(--radius-card);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .comment-form-card input,
+        .comment-form-card textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 14px;
+            color: var(--text-light);
+            font-size: 14px;
+            padding: 12px 16px;
+            outline: none;
+            font-family: var(--font-main);
+            transition: border-color var(--transition);
+        }
+        .comment-form-card input:focus,
+        .comment-form-card textarea:focus {
+            border-color: var(--primary-light);
+        }
+        .comment-form-card textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.6;
+        }
+        .comment-form-card input::placeholder,
+        .comment-form-card textarea::placeholder {
+            color: rgba(255, 255, 255, .3);
+        }
+        .comment-form-card .submit-btn {
+            align-self: flex-start;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .comment-form-card .submit-btn:hover {
+            background: #5A4BD6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+        .comment-list-wrap {
+            background: rgba(0, 0, 0, .15);
+            border-radius: var(--radius-card);
+            padding: 20px;
+            height: 520px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) rgba(255, 255, 255, .05);
+        }
+        .comment-list-wrap::-webkit-scrollbar {
+            width: 6px;
+        }
+        .comment-list-wrap::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, .04);
+        }
+        .comment-list-wrap::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 6px;
+        }
+        .comment-item {
+            background: rgba(255, 255, 255, .04);
+            border-radius: 16px;
+            padding: 16px;
+            transition: background var(--transition);
+        }
+        .comment-item:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .comment-user {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #fff;
+            font-weight: 600;
+        }
+        .comment-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .comment-time {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+        .comment-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            background: rgba(255, 255, 255, .08);
+            border-radius: 30px;
+            padding: 2px 10px;
+            color: var(--text-gray);
+            margin-bottom: 6px;
+        }
+        .comment-text {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .comment-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comment-actions .reply {
+            font-size: 13px;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+        .comment-actions .reply:hover {
+            color: var(--primary-light);
+        }
+        .comment-actions .meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+        .scroll-more-hint {
+            text-align: center;
+            padding: 12px 0 4px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+        @media (max-width: 992px) {
+            .comment-layout {
+                grid-template-columns: 1fr;
+            }
+            .comment-list-wrap {
+                height: 400px;
+            }
+        }
+        /* ========== 页脚 ========== */
+        .footer {
+            background: #08080F;
+            border-top: 1px solid rgba(255, 255, 255, .03);
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer p {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        .footer .copy {
+            margin-top: 8px;
+            opacity: .6;
+            font-size: 12px;
+        }
+        /* ========== 响应式补充 ========== */
+        @media (max-width: 768px) {
+            .banner {
+                height: auto;
+                padding: 120px 0 60px;
+            }
+            .banner-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .banner-left h1 {
+                font-size: 32px;
+            }
+            .banner-tags {
+                gap: 8px;
+            }
+            .monitor {
+                max-width: 100%;
+            }
+            .section-wrapper {
+                padding: 60px 0;
+            }
+            .section-title h2 {
+                font-size: 26px;
+            }
+            .news-card,
+            .video-card {
+                border-radius: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .banner-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+            .banner-btns a {
+                width: 100%;
+                justify-content: center;
+            }
+            .monitor-body {
+                grid-template-columns: 1fr;
+            }
+            .monitor-center {
+                border-right: none;
+                padding: 16px;
+            }
+            .monitor-left {
+                border-right: none;
+                border-bottom: 1px solid #2A2A3A;
+            }
+            .monitor-right {
+                border-top: 1px solid #2A2A3A;
+            }
+            .comment-layout {
+                padding: 20px;
+            }
+            .comment-form-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 滚动进度条 -->
+    <div id="scroll-progress"></div>
+    <!-- 粒子背景画布 -->
+    <canvas id="particle-canvas"></canvas>
+    <!-- ========== 固定导航栏 ========== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <!-- 正方形极简图标（影视播放器意象） -->
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="42" height="42">
+                    <rect x="2" y="2" width="28" height="28" rx="6" fill="var(--primary)"/>
+                    <path d="M12 10 L22 16 L12 22 Z" fill="#fff"/>
+                    <circle cx="20" cy="8" r="3" fill="var(--accent)"/>
+                </svg>
+                <span>大众影视</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#section-advantage">核心优势</a>
+                <a href="#section-video">精选视频</a>
+                <a href="#section-news">相关资讯</a>
+                <a href="#section-faq">常见问题</a>
+                <a href="#section-comment">评论留言</a>
+            </div>
+        </div>
+    </nav>
+    <!-- ========== 首屏 Banner ========== -->
+    <header class="banner" id="banner">
+        <div class="banner-container">
+            <div class="banner-left">
+                <div class="banner-tag">
+                    <i class="fas fa-arrow-down"></i> 全新升级 · 极致观影
+                </div>
+                <h1>大众影视<span class="highlight">APP</span><br>海量资源随心看</h1>
+                <p class="banner-desc">聚合全球影视生态，超高清画质与极速播放引擎，智能推荐为你寻找每一部心头好。无广告打扰，弹幕社交让追剧更有趣。</p>
+                <div class="banner-tags">
+                    <span>4K超清</span>
+                    <span>无广告</span>
+                    <span>极速播放</span>
+                    <span>弹幕互动</span>
+                </div>
+                <div class="banner-btns">
+                    <a href="#section-video" class="btn-primary"><i class="fas fa-play"></i> 立即下载</a>
+                    <a href="#section-advantage" class="btn-outline"><i class="fas fa-info-circle"></i> 了解更多</a>
+                </div>
+            </div>
+            <div class="banner-right">
+                <div class="monitor">
+                    <div class="monitor-bar">
+                        <span></span><span></span><span></span>
+                        <span class="addr">https://www.dazhongtv.app</span>
+                    </div>
+                    <div class="monitor-body">
+                        <div class="monitor-left">
+                            <div class="icon"><i class="fas fa-film"></i></div>
+                            <div class="name">大众影视</div>
+                            <div class="sub">v6.8.2</div>
+                        </div>
+                        <div class="monitor-center">
+                            <!-- SVG环形进度仪表盘 -->
+                            <svg width="120" height="120" viewBox="0 0 120 120" style="transform:rotate(-90deg)">
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="8"/>
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="url(#grad)" stroke-width="8" stroke-dasharray="314" stroke-dashoffset="62" stroke-linecap="round"/>
+                                <defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="100%" stop-color="#FF7675"/></linearGradient></defs>
+                            </svg>
+                            <div style="text-align:center;margin-top:-80px;color:#fff;font-size:28px;font-weight:700;">80%</div>
+                        </div>
+                        <div class="monitor-right">
+                            <div class="data-row"><span class="label">在线用户</span><span class="value">12,580</span></div>
+                            <div class="data-row"><span class="label">今日新增</span><span class="value">1,204</span></div>
+                            <div class="data-row"><span class="label">片源总量</span><span class="value">32,860</span></div>
+                            <div class="data-row"><span class="label">好评率</span><span class="value">98.6%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- ========== 核心优势模块 ========== -->
+        <section id="section-advantage" class="advantage-bg" style="padding:80px 0;">
+            <div class="section-wrapper">
+                <div class="section-title">
+                    <h2>为什么选择大众影视？</h2>
+                    <p>我们为影视热爱者打造极致的在线观影体验</p>
+                </div>
+                <div class="advantage-grid">
+                    <div class="advantage-card">
+                        <div class="icon-wrap"><i class="fas fa-rocket"></i></div>
+                        <h3>极速播放引擎</h3>
+                        <p>自研智能加速技术，超清秒开无缓冲，进度条拖动即刻响应，告别卡顿等待。</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                        <h3>纯净无广告</h3>
+                        <p>不插入干扰式广告，观影过程纯净沉浸，专注剧情不被打断。</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="icon-wrap"><i class="fas fa-microchip"></i></div>
+                        <h3>AI智能推荐</h3>
+                        <p>深度学习用户观影偏好，千人千面精准推荐，发现你的专属好片。</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="icon-wrap"><i class="fas fa-sync-alt"></i></div>
+                        <h3>全端实时同步</h3>
+                        <p>手机、平板、电视多端登录，观影进度自动同步，换个屏幕接着看。</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="icon-wrap"><i class="fas fa-comments"></i></div>
+                        <h3>弹幕互动社区</h3>
+                        <p>实时弹幕表情互动，边聊边看，与千万网友共享追剧欢乐。</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="icon-wrap"><i class="fas fa-globe"></i></div>
+                        <h3>全球片源聚合</h3>
+                        <p>覆盖国内外主流影视内容，院线热映、经典老片、小众佳作一网打尽。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========== 精选视频模块 ========== -->
+        <section id="section-video" class="video-section" style="padding-top:0;">
+            <div class="section-title" style="padding-top:80px;">
+                <h2>精选<span style="color:var(--primary-light);">视频</span>推荐</h2>
+                <p>编辑精选，热门榜单实时更新</p>
+            </div>
+            <div class="video-grid">
+                <!-- 卡片1 -->
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#1a1a2e,#3a3a5c);">
+                        <span class="category-tag"><i class="fas fa-fire"></i> 热门</span>
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <span class="video-duration">02:24:00</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《星际穿越》</h3>
+                        <p class="video-desc">诺兰经典科幻巨作，五维空间与时间相对论震撼人心。</p>
+                        <div class="video-meta"><span><i class="far fa-eye"></i> 320万</span><span><i class="far fa-thumbs-up"></i> 2.1万</span></div>
+                        <div class="video-tags"><span class="tag-video">科幻</span><span class="tag">经典</span></div>
+                    </div>
+                </div>
+                <!-- 卡片2 -->
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#0f3460,#533483);">
+                        <span class="category-tag"><i class="fas fa-tv"></i> 热播剧</span>
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <span class="video-duration">45:30</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《庆余年》</h3>
+                        <p class="video-desc">范闲搅动京都风云，权谋与笑点齐飞的爽剧佳作。</p>
+                        <div class="video-meta"><span><i class="far fa-eye"></i> 518万</span><span><i class="far fa-thumbs-up"></i> 3.6万</span></div>
+                        <div class="video-tags"><span class="tag-video">古装</span><span class="tag">权谋</span></div>
+                    </div>
+                </div>
+                <!-- 卡片3 -->
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#2d3436,#636e72);">
+                        <span class="category-tag"><i class="fas fa-smile"></i> 综艺</span>
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <span class="video-duration">01:50:00</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《向往的生活》</h3>
+                        <p class="video-desc">蘑菇屋里的烟火气，慢生活治愈都市疲惫心灵。</p>
+                        <div class="video-meta"><span><i class="far fa-eye"></i> 210万</span><span><i class="far fa-thumbs-up"></i> 1.2万</span></div>
+                        <div class="video-tags"><span class="tag-video">治愈</span><span class="tag">真人秀</span></div>
+                    </div>
+                </div>
+                <!-- 卡片4 -->
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#5f0a87,#a4508b);">
+                        <span class="category-tag"><i class="fas fa-dragon"></i> 动漫</span>
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <span class="video-duration">20:00</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《斗罗大陆》</h3>
+                        <p class="video-desc">唐三重生斗罗世界，热血冒险与魂力修炼传奇。</p>
+                        <div class="video-meta"><span><i class="far fa-eye"></i> 890万</span><span><i class="far fa-thumbs-up"></i> 5.2万</span></div>
+                        <div class="video-tags"><span class="tag-video">热血</span><span class="tag">国漫</span></div>
+                    </div>
+                </div>
+                <!-- 卡片5 -->
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#1a2a6c,#b21f1f);">
+                        <span class="category-tag"><i class="fas fa-film"></i> 经典</span>
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <span class="video-duration">01:48:00</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《流浪地球》</h3>
+                        <p class="video-desc">中国科幻里程碑，带着地球一同逃离太阳系的壮阔史诗。</p>
+                        <div class="video-meta"><span><i class="far fa-eye"></i> 680万</span><span><i class="far fa-thumbs-up"></i> 4.8万</span></div>
+                        <div class="video-tags"><span class="tag-video">科幻</span><span class="tag">国产</span></div>
+                    </div>
+                </div>
+                <!-- 卡片6 -->
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#0f2027,#2c5364);">
+                        <span class="category-tag"><i class="fas fa-star"></i> 新片</span>
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <span class="video-duration">03:00:00</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《奥本海默》</h3>
+                        <p class="video-desc">诺兰执导的原子弹之父传记，人性的光明与黑暗交织。</p>
+                        <div class="video-meta"><span><i class="far fa-eye"></i> 156万</span><span><i class="far fa-thumbs-up"></i> 9.8万</span></div>
+                        <div class="video-tags"><span class="tag-video">传记</span><span class="tag">剧情</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========== 相关资讯模块 ========== -->
+        <section id="section-news" class="news-section" style="padding-top:0;">
+            <div class="section-title" style="padding-top:80px;">
+                <h2>相关资讯</h2>
+                <p>掌握大众影视最新动态与行业风向</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 2026-04-01</div>
+                    <h3 class="news-title">大众影视与环球影业达成独家版权合作</h3>
+                    <p class="news-summary">引入百部环球经典影片，涵盖侏罗纪、速激等多个超级IP。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 2026-03-28</div>
+                    <h3 class="news-title">AI推荐算法全新升级 智能匹配度提升34%</h3>
+                    <p class="news-summary">基于用户时长与点赞行为的深度学习模型正式上线。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 2026-03-20</div>
+                    <h3 class="news-title">4K超清修复计划启动 多部经典老片重生</h3>
+                    <p class="news-summary">首批修复完成《霸王别姬》《茶馆》等30部佳作。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 2026-03-15</div>
+                    <h3 class="news-title">大众影视TV版正式上线 大屏体验再升级</h3>
+                    <p class="news-summary">支持4K杜比音效，手机遥控无缝衔接，客厅秒变影院。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 2026-03-08</div>
+                    <h3 class="news-title">用户规模突破3亿 蝉联影视APP下载榜首</h3>
+                    <p class="news-summary">凭借优质内容与极致体验，大众影视再创里程碑。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 2026-03-01</div>
+                    <h3 class="news-title">《2026影视趋势报告》发布 超长剧集成热点</h3>
+                    <p class="news-summary">数据显示用户日均观影时长同比提升27%，悬疑题材最受欢迎。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+            </div>
+        </section>
+        <!-- ========== 常见问题FAQ模块 ========== -->
+        <section id="section-faq" class="faq-section">
+            <div class="section-title">
+                <h2>观影常见问题</h2>
+                <p>关于影视剧情的那些热门疑惑，快速解答</p>
+            </div>
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-card active">
+                    <div class="faq-question">
+                        <i class="fas fa-robot"></i> 《流浪地球2》中的MOSS真的具备自我意识吗？
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>MOSS在电影中表现为超级人工智能，拥有接近人类的情感计算能力。</li>
+                            <li>导演郭帆曾表示MOSS并非单纯的机器，而是进化后的数字生命体。</li>
+                            <li>片中MOSS选择保留人类文明火种，是权衡所有可能性后的决定。</li>
+                            <li>彩蛋中MOSS留下的线索暗示其行为逻辑早已超越图灵测试范畴。</li>
+                            <li>这一设定引发观众对AI伦理的广泛讨论，是影片核心隐喻之一。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <i class="fas fa-crown"></i> 《甄嬛传》中皇后乌拉那拉氏为何最终失败？
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>皇后过于依赖纯元皇后的余荫，却忽略了皇帝真正的情感需求。</li>
+                            <li>她设计杀害纯元一事暴露后，彻底失去皇帝的信任与庇护。</li>
+                            <li>后宫斗争中的多次阴毒手段被揭露，导致众叛亲离。</li>
+                            <li>甄嬛团队的反击手段精准，形成完整的证据链。</li>
+                            <li>皇帝对皇后的爱早已消磨，留下的只有愧疚与厌恶。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <i class="fas fa-mask"></i> 《霸王别姬》里程蝶衣的性别身份有何深意？
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>程蝶衣的"不疯魔不成活"是对艺术极致的执着追求。</li>
+                            <li>他在戏中入旦角，模糊了性别边界，象征着艺术人格的异化。</li>
+                            <li>这种身份混乱暗示了传统戏曲艺人"戏如人生"的宿命。</li>
+                            <li>张国荣的表演让角色充满悲剧美的张力，令人心碎。</li>
+                            <li>导演陈凯歌借此探讨了艺术与时代、个人与命运的冲突。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <i class="fas fa-clock"></i> 《复仇者联盟4》穿越时间线违背漫威宇宙规则吗？
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>电影引入了"量子时空劫持"概念，并未采用平行世界单纯穿越。</li>
+                            <li>古一法师的对话明确了时间线分支不会覆盖主宇宙。</li>
+                            <li>归还无限宝石的操作修复了时间线裂痕，确保因果链条不崩坏。</li>
+                            <li>导演罗素兄弟解释这是"既定宿命论"与"自由意志"的调和。</li>
+                            <li>这一设定成功圆回了MCU前21部电影的伏笔。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <i class="fas fa-crosshairs"></i> 《亮剑》中李云龙的原型人物是王近山吗？
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>李云龙的艺术形象确实参考了王近山将军的传奇战斗经历。</li>
+                            <li>王近山曾率部全歼日军观摩团，与剧中歼敌情节高度吻合。</li>
+                            <li>都爱打"如意算盘"，打仗讲究灵机应变，不拘一格。</li>
+                            <li>剧中人物还有多位开国将领的影子，属于复合型创作。</li>
+                            <li>作者都梁本人坦言，李云龙是那一代军人精神的集中投影。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ 6 -->
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <i class="fas fa-feather"></i> 《长安三万里》中李白与高适的关系符合史实吗？
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>历史上李白与高适是知己好友，曾同游梁园、喝酒论诗。</li>
+                            <li>电影中的两人性格差异较大，但情感基础遵循史料记载。</li>
+                            <li>安史之乱后两人因政治立场不同而疏远，影片还原了这一残酷。</li>
+                            <li>高适晚年并未提携李白，但也不是落井下石，影片做了艺术化处理。</li>
+                            <li>总体来看，核心事件脉络符合唐宋文学史研究。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========== 评论留言模块 ========== -->
+        <section id="section-comment" class="comment-section">
+            <div class="section-title">
+                <h2>网友热评</h2>
+                <p>看看大家都在讨论什么</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="comment-container">
+                <div class="comment-layout">
+                    <!-- 左侧发布留言表单 -->
+                    <div class="comment-form-card">
+                        <input type="text" placeholder="你的昵称" maxlength="12">
+                        <textarea placeholder="写下你对本站剧集、功能的看法与建议..."></textarea>
+                        <button class="submit-btn"><i class="fas fa-arrow-up"></i> 发布留言</button>
+                    </div>
+                    <!-- 右侧历史评论列表 -->
+                    <div class="comment-list-wrap" id="commentList">
+                        <!-- JS动态生成50条评论 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ========== 页脚版权 ========== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p><i class="fas fa-copyright"></i> 2015-2026 <strong>大众影视</strong> 版权所有</p>
+            <p class="copy">本站仅提供网络资源信息展示服务，不参与内容录制与存储，部分资源源于网络，侵权请联系删除。</p>
+        </div>
+    </footer>
+    <!-- ========== JSON-LD结构化数据 ========== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "FAQPage",
+                "mainEntity": [{
+                    "@type": "Question",
+                    "name": "《流浪地球2》中的MOSS真的具备自我意识吗？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "MOSS在电影中表现为超级人工智能，拥有接近人类的情感计算能力。导演郭帆曾表示MOSS并非单纯的机器，而是进化后的数字生命体。片中MOSS选择保留人类文明火种，是权衡所有可能性后的决定。彩蛋中MOSS留下的线索暗示其行为逻辑早已超越图灵测试范畴。这一设定引发观众对AI伦理的广泛讨论。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《甄嬛传》中皇后乌拉那拉氏为何最终失败？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "皇后过于依赖纯元皇后的余荫，却忽略了皇帝真正的情感需求。她设计杀害纯元一事暴露后，彻底失去皇帝的信任与庇护。后宫斗争中的多次阴毒手段被揭露，导致众叛亲离。甄嬛团队的反击手段精准，形成完整的证据链。皇帝对皇后的爱早已消磨，剩下的只有愧疚与厌恶。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《霸王别姬》里程蝶衣的性别身份有何深意？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "程蝶衣的'不疯魔不成活'是对艺术极致的执着追求。他在戏中入旦角，模糊了性别边界，象征着艺术人格的异化。这种身份混乱暗示了传统戏曲艺人'戏如人生'的宿命。张国荣的表演让角色充满悲剧美的张力。导演陈凯歌借此探讨了艺术与时代、个人与命运的冲突。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《复仇者联盟4》穿越时间线违背漫威宇宙规则吗？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "电影引入了'量子时空劫持'概念，并未采用平行世界单纯穿越。古一法师的对话明确了时间线分支不会覆盖主宇宙。归还无限宝石的操作修复了时间线裂痕，确保因果链条不崩坏。导演罗素兄弟解释这是'既定宿命论'与'自由意志'的调和。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《亮剑》中李云龙的原型人物是王近山吗？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "李云龙的艺术形象确实参考了王近山将军的传奇战斗经历。王近山曾率部全歼日军观摩团，与剧中歼敌情节高度吻合。都爱打'如意算盘'，打仗讲究灵机应变，不拘一格。剧中人物还有多位开国将领的影子，属于复合型创作。作者都梁坦言，李云龙是那一代军人精神的集中投影。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《长安三万里》中李白与高适的关系符合史实吗？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "历史上李白与高适是知己好友，曾同游梁园、喝酒论诗。电影中的两人性格差异较大，但情感基础遵循史料记载。安史之乱后两人因政治立场不同而疏远，影片还原了这一残酷。高适晚年并未提携李白，但也不是落井下石，影片做了艺术化处理。" }
+                }]
+            },
+            {
+                "@type": "VideoObject",
+                "name": "《星际穿越》",
+                "description": "诺兰经典科幻巨作，五维空间与时间相对论震撼人心。",
+                "thumbnailUrl": "https://www.dazhongtv.app/image/interstellar.jpg",
+                "uploadDate": "2026-02-15",
+                "duration": "PT2H24M"
+            },
+            {
+                "@type": "VideoObject",
+                "name": "《庆余年》",
+                "description": "范闲搅动京都风云，权谋与笑点齐飞的爽剧佳作。",
+                "thumbnailUrl": "https://www.dazhongtv.app/image/qingyunian.jpg",
+                "uploadDate": "2026-03-01",
+                "duration": "PT45M"
+            },
+            {
+                "@type": "Article",
+                "headline": "大众影视与环球影业达成独家版权合作",
+                "datePublished": "2026-04-01",
+                "description": "引入百部环球经典影片，涵盖侏罗纪、速激等多个超级IP。"
+            },
+            {
+                "@type": "Article",
+                "headline": "AI推荐算法全新升级 智能匹配度提升34%",
+                "datePublished": "2026-03-28",
+                "description": "基于用户时长与点赞行为的深度学习模型正式上线。"
+            }
+        ]
+    }
+    </script>
+    <!-- ========== JavaScript功能 ========== -->
+    <script>
+        // ===== 1. 粒子背景 =====
+        (function() {
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h, particles = [];
+            const PARTICLE_COUNT = 45;
+            function resize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.vx = (Math.random() - 0.5) * 0.4;
+                    this.vy = (Math.random() - 0.5) * 0.4;
+                    this.r = Math.random() * 2 + 0.5;
+                    this.alpha = Math.random() * 0.5 + 0.2;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(160, 160, 220, ' + this.alpha + ')';
+                    ctx.fill();
+                }
+                move() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > w) this.vx *= -1;
+                    if (this.y < 0 || this.y > h) this.vy *= -1;
+                }
+            }
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    particles.push(new Particle());
+                }
+            }
+            initParticles();
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                particles.forEach(p => { p.move();
+                    p.draw(); });
+                // 连线
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = 'rgba(160,160,220,' + (0.2 * (1 - dist / 120)) + ')';
+                            ctx.lineWidth = 0.6;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+        // ===== 2. 滚动进度条 =====
+        (function() {
+            const progress = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', function() {
+                const total = document.documentElement.scrollHeight - window.innerHeight;
+                const pct = (window.scrollY / total) * 100;
+                progress.style.width = pct + '%';
+            });
+        })();
+        // ===== 3. FAQ手风琴 =====
+        (function() {
+            const cards = document.querySelectorAll('.faq-card');
+            cards.forEach(card => {
+                const question = card.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    const isActive = card.classList.contains('active');
+                    cards.forEach(c => c.classList.remove('active'));
+                    if (!isActive) {
+                        card.classList.add('active');
+                    }
+                });
+            });
+        })();
+        // ===== 4. 评论数据生成 =====
+        (function() {
+            const commentList = document.getElementById('commentList');
+            if (!commentList) return;
+            const names = ['追剧小鹿', '爱看电影的猫', '午夜影院常客', '柠檬味气泡', '剧海无涯', '星河滚烫', '春风十里看片',
+                '奶油爆米花', '剧情控阿杰', '光影拾荒者', '懒人观影机', '樱桃小丸子和', '梦想家小刘', '沉默的羔羊羊',
+                '多啦A梦的兜', '番茄炒蛋饭', '冬夜篝火', '纸飞机划过', '奶茶半糖去冰', '雨后晴天', '深海鱼丸',
+                '莫比乌斯环', '芝士三分甜', '月亮不营业', '麦田守望者', '雾里看花', '风起时想你', '山河故人',
+                '孤岛鲸鱼', '巷口老猫', '雾都夜话', '白桃乌龙', '拾光笔记', '慢慢喜欢你', '凌晨两点半',
+                '橘子海', '落日飞车', '流浪的地球', '南风知我意', '半盏流年', '时光旅人', '迷路的鹿',
+                '红烧茄子', '泡面加蛋', '熬夜冠军', '剧本杀迷', '悬疑侦探', '浪漫过敏体质', '喜剧人本人', '云边的小卖部'];
+            const tagsPool = [
+                { text: '热议', icon: 'fa-fire' },
+                { text: '理性', icon: 'fa-scale-balanced' },
+                { text: '热门', icon: 'fa-crown' },
+                { text: '观点', icon: 'fa-lightbulb' },
+                { text: '精彩', icon: 'fa-star' },
+                { text: '讨论', icon: 'fa-comments' },
+                { text: '催更', icon: 'fa-drumstick-bite' },
+                { text: '好评', icon: 'fa-heart' }
+            ];
+            const contents = [
+                '这个app的推荐算法太强了！每次都能精准命中我的口味，昨天刚看了《沙丘2》，今天就推了相关纪录片，绝了！',
+                '求催更《庆余年3》啊！等了两年了，希望大众影视能第一时间上线，拜托了！',
+                '昨晚上用大众影视看了4K修复版《霸王别姬》，画质简直惊到我了，张国荣的眼神清晰可见，太感动了。',
+                '弹幕氛围特别好，没有那种恶意剧透的，大家都在讨论剧情，看《流浪地球2》的时候觉得像在太空看直播。',
+                'nav下了一个星期，发现确实没有广告，以前用别的app播十分钟一个广告，这里太清爽了。',
+                '希望能上架更多欧洲文艺片，比如《帕特森》那种，老片源有点少。',
+                '手机和电视同步太方便了，地铁上看到一半回来客厅接着看，进度完全没乱。',
+                '《奥本海默》的高潮部分音效爆炸，用电脑配耳机看，震撼到鸡皮疙瘩起来了。',
+                '这个搜索功能太好了！不用打完整片名就能搜到，模糊搜索也很准。',
+                '评论区的网友都好有才，看《甄嬛传》时各种拉片细节，学到了好多。',
+                '觉得新版本字体有点小了，但整体设计比之前好看多了，加油！',
+                '最喜欢的一个功能是下载缓存，出差飞机上没有网也能看，太爽了。',
+                '《亮剑》的弹幕才是精髓，每次那句“二营长你他娘的意大利炮呢”一出，弹幕就炸了。',
+                '希望增加多一些粤语原声的港片，家里老人听不懂国语。',
+                '之前用别的APP看《流浪地球》关键时候就卡，换了这个app之后，就再也没有那问题了。',
+                '每次更新日志写得特别详细，能看出来团队很用心，好评！',
+                '界面设计干净清爽，没有乱七八糟的推送，这太重要了。',
+                '《长安三万里》看完后，突然对古诗词来了兴趣，这个app里还有好多历史纪录片，知识量拉满。',
+                '有一个小建议：希望可以增加评论区直接回复图片的功能，有时候想发表情包～',
+                '给大众影视点赞！居然能看《星际穿越》的IMAX增强版，体验太震撼了。',
+                '希望上线杜比全景声版本，我的音响已经准备好了。',
+                '《斗罗大陆》的3D渲染细节真好，打斗场面的粒子特效帅爆了！',
+                '夜深人静的时候用这个看《霸王别姬》，感动得失眠了。',
+                '推荐算法越来越懂我了，最近给我推了好多冷门佳作，质量都很高。',
+                '下载速度特别快，缓存5集《庆余年》只用了不到一分钟。',
+                '这次更新后的进度条拖动手感很好，再也不怕误触了。',
+                '希望片库可以增加一些经典日剧，比如《白色巨塔》那种。',
+                '手机平板电脑三端都很流畅，UI设计也统一，比那些粗糙的蹭热App强多了。',
+                '《猎魔人》第三季什么时候上啊？等着追呢！',
+                '你们的客服是我见过最有人情味的，上次反馈问题还送了我7天VIP，感动。',
+                '追剧日历功能太实用了，新番上线时间一目了然，不怕漏更。',
+                '那个“一起看”功能挺好玩的，虽然我社恐没开过，但看别人组团看也乐呵。',
+                '希望可以调节播放速度，看综艺1.25倍更舒适，虽然现在也行但选项不多。',
+                '其实我更喜欢弹幕里的“课代表”们，每次剧情看不懂就翻弹幕，比评论区还快。',
+                '身为一个海外党，能在这边流畅看国产剧太感动了，感谢大众影视！',
+                '建议给视频标签做分级：比如“惊悚”“烧脑”可以标得更细一些，方便选片。',
+                '画质和音效都不错，但偶尔遇到老片子码力不足，期待后续能修复。',
+                '《沙丘》系列能引进真是太棒了！这种史诗感大片就得在大屏上看。',
+                '希望多和同人圈联动，搞一些弹幕抽奖之类的活动，活跃气氛嘛！',
+                '之前用iPad看《流浪地球》，画面很惊艳，完全没有拉伸变形。',
+                '你们的片源真的很全，连《大明王朝1566》这种老剧都有，太爱了！',
+                '如果能把“最多只看两集”的会员限制去掉就好了，哈哈，当然我知道是不可能的。',
+                '首页那个“本周之星”推荐专栏很有意思，让我发现了《出走的决心》这部好片。',
+                '字幕组的翻译质量很在线，英文片名翻译得准确又有味道。',
+                '希望电影详情页能加个“导演剪辑版”的标签，有些片必须看导演剪辑版才行。',
+                '看到喜欢的UP主都推荐大众影视，果然没错。',
+                '这月份更新了200多部片子，其中好几部都是我想看的，太良心了吧！',
+                '半夜看恐怖片，弹幕一开，瞬间变成喜剧片，哈哈哈哈。',
+                '会员价格很合理，学生党也负担得起，而且还有校园认证优惠。',
+                '你们家的播放器加载速度真的快，我对比过好几个，按进度条几乎秒懂。'
+            ];
+            // 生成50条唯一评论
+            const usedNames = new Set();
+            const usedContents = new Set();
+            const now = Date.now();
+            const dayMs = 24 * 60 * 60 * 1000;
+            const comments = [];
+            while (comments.length < 50) {
+                let name;
+                do {
+                    name = names[Math.floor(Math.random() * names.length)];
+                } while (usedNames.has(name));
+                usedNames.add(name);
+                let content;
+                do {
+                    content = contents[Math.floor(Math.random() * contents.length)];
+                } while (usedContents.has(content) && usedContents.size < contents.length);
+                usedContents.add(content);
+                if (!content) continue;
+                const timestamp = now - Math.floor(Math.random() * 30 * dayMs);
+                const date = new Date(timestamp);
+                const dateStr = date.getFullYear() + '-' +
+                    String(date.getMonth() + 1).padStart(2, '0') + '-' +
+                    String(date.getDate()).padStart(2, '0') + ' ' +
+                    String(date.getHours()).padStart(2, '0') + ':' +
+                    String(date.getMinutes()).padStart(2, '0');
+                const tag = tagsPool[Math.floor(Math.random() * tagsPool.length)];
+                const likes = Math.floor(Math.random() * 999);
+                const replies = Math.floor(Math.random() * 50);
+                const avatarChar = name.charAt(0);
+                comments.push({
+                    name,
+                    content,
+                    dateStr,
+                    timestamp,
+                    tag,
+                    likes,
+                    replies,
+                    avatarChar
+                });
+            }
+            // 按时间降序排序
+            comments.sort((a, b) => b.timestamp - a.timestamp);
+            // 渲染评论
+            let html = '';
+            comments.forEach(c => {
+                html += `
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-user">
+                                <div class="comment-avatar" style="background:linear-gradient(135deg,var(--primary),var(--accent));">${c.avatarChar}</div>
+                                <span class="comment-name">${c.name}</span>
+                            </div>
+                            <span class="comment-time">${c.dateStr}</span>
+                        </div>
+                        <div class="comment-tag"><i class="fas ${c.tag.icon}"></i> ${c.tag.text}</div>
+                        <p class="comment-text">${c.content}</p>
+                        <div class="comment-actions">
+                            <span class="reply"><i class="far fa-comment"></i> 回复</span>
+                            <span class="meta">
+                                <span><i class="far fa-thumbs-up"></i> ${c.likes}</span>
+                                <span><i class="far fa-comment-dots"></i> ${c.replies}</span>
+                            </span>
+                        </div>
+                    </div>`;
+            });
+            html += `<div class="scroll-more-hint"><i class="fas fa-chevron-down"></i> 向下滑动查看更多留言</div>`;
+            commentList.innerHTML = html;
+        })();
+        // ===== 5. 评论表单提交反馈 =====
+        (function() {
+            const submitBtn = document.querySelector('.submit-btn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    const input = document.querySelector('.comment-form-card input');
+                    const textarea = document.querySelector('.comment-form-card textarea');
+                    if (!input.value.trim() || !textarea.value.trim()) {
+                        alert('请填写昵称和留言内容~');
+                        return;
+                    }
+                    alert('留言发布成功！感谢你的参与～');
+                    input.value = '';
+                    textarea.value = '';
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
